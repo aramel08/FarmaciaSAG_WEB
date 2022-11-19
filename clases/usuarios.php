@@ -17,6 +17,25 @@ class Usuarios{
         $this->Password = $Password;
     }
 
+    public function guardarUsuario($Conexion){
+
+      $Res = new Respuesta();
+      if (trim($this->Correo)==""){
+      $Res->NoSucces("Debe ingresar un correo");
+      }else{
+       mysqli_query($Conexion,
+          "INSERT into usuario(correo, contrasena, id_rol)
+          values('$this->Correo','$this->Password','1')"
+      );
+      if (mysqli_error($Conexion)){
+          $Res->NoSucces("Error al Insertar: " . $Conexion->error);
+      }else{
+          $Res->Succes("Se Inserto Correctamente el Producto: ".$this->Descripcion );
+      }
+      }
+      return $Res;
+    }
+
     public function Login($Conexion)
     {
         $resultado = mysqli_query($Conexion,"SELECT correo, contrasena FROM usuario WHERE correo = '$this->Correo'");

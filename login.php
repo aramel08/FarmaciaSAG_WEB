@@ -51,20 +51,20 @@
                 <br>
                 <h2>Registrate</h2>
                 <br>
-                <input type="email" placeholder="Ingrese un correo" />
+                <input id="correo1" type="email" placeholder="Ingrese un correo" />
                 <div>
-                  <input type="password" placeholder="Ingrese una contraseña" />
+                  <input id="contrasena1" type="password" placeholder="Ingrese una contraseña" />
                   <div class="icon form-icon">
                     <img src="./images/eye.svg" alt="" />
                   </div>
                 </div>
                 <div>
-                  <input type="password" placeholder="Confirme la contraseña" />
+                  <input id="contrasena2" type="password" placeholder="Confirme la contraseña" />
                   <div class="icon form-icon">
                     <img src="./images/eye.svg" alt="" />
                   </div>
                 </div>
-                <input type="Submit" value="Registrarse" />
+                <input type="Submit" value="Registrarse" onclick="RegistrarUsuario()" />
               </div>
             </form>
           </div>
@@ -89,7 +89,6 @@
 
 // alert(Correo + " " + Password);
 
-
        $.post("/php/loginWS.php",
         {
             "Correo" : Correo,
@@ -109,6 +108,32 @@
         }
       );
     }
+    function RegistrarUsuario(){
+      var Correo = document.getElementById('correo1').value;
+      var Password = document.getElementById('contrasena1').value;
+      var Password1 = document.getElementById('contrasena2').value;
+
+
+      if(Correo == "" || Password == "" || Password1 == ""){
+        alert("Debes llenar todos los campos."+ Correo+ " "+Password + " " +Password1);
+      }else if(Password != Password1){
+        alert("La contraseña no coinciden.");
+      }else{
+        $.post("/php/guardarusuarioWS.php",
+        {
+        'Correo': Correo,
+         "Password": Password,
+          },
+          function(data){
+            var respuesta = JSON.parse(data);
+            alert(respuesta.Data);
+          }
+        );
+
+
+      }
+
+      }
 
 
 </script>
