@@ -25,14 +25,14 @@
                 <br>
                 <h2>Iniciar Sesión</h2>
                 <br>
-                <input type="text" placeholder="Usuario" />
+                <input id="correo" type="text" placeholder="Correo Electrónico" />
                 <div>
-                  <input type="password" placeholder="Contraseña" />
+                  <input id="contrasena" type="password" placeholder="Contraseña" />
                   <div class="icon form-icon">
                   </div>
                 </div>
                 <span>¿Olvidaste tu contraseña?</span>
-                <input type="Submit" value="Ingresar"/>
+                <input type="Submit" onclick="Login()" value="Ingresar"/>
               </div>
             </form>
           </div>
@@ -78,3 +78,37 @@
     <script src="./js/index.js"></script>
   </body>
 </html>
+
+<script>
+
+    function Login()
+    {
+
+        var Correo = document.getElementById('correo').value;
+        var Password = document.getElementById('contrasena').value;
+
+// alert(Correo + " " + Password);
+
+
+       $.post("/php/loginWS.php",
+        {
+            "Correo" : Correo,
+            "Password" : Password
+        },
+
+        function(Data)
+        {
+            var respuesta = JSON.parse(Data);
+
+            if(respuesta.Ok == 1)
+            {
+                location.href = "/MenuPrincipal/menu.html";
+            }else{
+                alert(Data);
+            }
+        }
+      );
+    }
+
+
+</script>
