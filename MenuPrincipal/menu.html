@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Usuarios</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
+   
+    
 </head>
 <body>
     
@@ -75,29 +78,44 @@
 </div>
     </aside>
 
-    <div class="formulario">
-
+    <div class="formulario"> 
+          
         <h1 class="titulo">Gestión de Usuario</h1>
-        <br>      
+        <br>  <br><br><br> 
+       
+        <i class="fa-sharp fa-solid fa-rotate-right"></i>
+        <input type ="submit" name="Actualizar" value="Actualizar Usuario" class="botonAct">
+    
         
-        
-        <div class="superior">            
+        <div class="superior">      
+                  
             <br>
-            <input class="input-field" type="text" name="nombre" id="Nombre" class="form-control" placeholder="Ingrese Nombre">
+            <i class="fa-solid fa-user"></i>
+            <input class="input-field" type="text" name="nombre" id="Nombre" class="form-control" placeholder="Ingrese Nombre">     
+            
+            <i class="fa-solid fa-cake-candles"></i>
             <input class="input-field" type="text" name="FechaNac" id="FechaNac" class="form-control" placeholder="Fecha de Nacimiento">
+             
+            <i class="fa-solid fa-scroll"></i>
             <input class="input-field" type="text" name="RTN" id="RTN" class="form-control" placeholder="RTN">
         </div>
         
         <br>
-        <div class="inferior">            
+        <div class="inferior">
+
+            <i class="fa-solid fa-map-pin"></i>
             <input class="input-field" type="text" name="dirección" id="Dirección" class="form-control" placeholder="Ingrese Dirección">
+            
+            <i class="fa-regular fa-envelope"></i>
             <input class="input-field" type="text" name="correo" id="correo" class="form-control" placeholder="Ingrese Correo">
+            
+            <i class="fa-solid fa-lock"></i>
             <input class="input-field" type="text" name="contrasena" id="contrasena" class="form-control" placeholder="Ingrese Contraseña">
         </div>
        
-        <br>
-        <input type ="submit" name="Actualizar" value="Actualizar" class="botonAct">
-        <input type ="submit" name="Eliminar" value="Eliminar" class="botonEli">
+        <br>  
+        <i class="fa-solid fa-user-xmark"></i>     
+        <input type ="submit" name="Eliminar" value="Inhabilitar Usuario" class="botonEli">
 </form>
     </div>
 

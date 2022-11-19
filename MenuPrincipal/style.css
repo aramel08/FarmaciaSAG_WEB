@@ -59,6 +59,7 @@ body{
 .superior{
     align-items: center;
     width: 180%;
+   
 }
 
 .inferior{
@@ -66,55 +67,81 @@ body{
     width: 180%;
 }
 
+    
+
+
+
 .formulario{
     padding-left: 5%;
     padding-right: 18%;
     padding-top: 15%;  
     margin-left: 5%; 
-    margin-right: 5%;    
+    margin-right: 5%;  
+    text-align: center;  
 }
+
+
 
 .input-field{
     font-family: "Poppins", sans-serif;
     border-radius: 5px;
     border: 1px solid rgb(60, 100, 231);
     padding: 10px 0;
-    margin-bottom: 10px;
-    text-indent: 16px;
-    width: 100%;
+    margin-bottom: 40px;
+    text-indent: 16px;    
     color: var(--color);
     outline: none;
     width: 30%;
 }
 
 .botonAct{    
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
     border: 1px;
-    border-radius: 5%;
-    width: 90px;
+    border-radius: 8%;
+    width: 28%;
     height: 40px;
-    background-color: rgb(68, 239, 42);
-    border: 1px solid rgb(60, 100, 231);
-    padding-right: 20%;
+    text-align: center;
+    background-color: rgb(24, 161, 3);
+    border: 1px solid rgb(60, 100, 231);        
+    margin-right: 310px;
+    cursor: pointer;
+    
 }
 
 .botonEli{ 
-    margin-left: 60px;   
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: -1165px;
     border: 1px;
-    border-radius: 5%;
-    width: 90px;
+    border-radius: 8%;
+    width: 25%;
     height: 40px;
+    text-align: center;
     background-color: rgb(247, 33, 14);
-    border: 1px solid rgb(60, 100, 231);
-    padding-right: 20%;
-    
+    border: 1px solid rgb(60, 100, 231);        
 }
 
 .titulo{
     font-family: 'Times New Roman', Times, serif;
-    font-size: 400%;
+    font-size: 300%;
     text-align: center;
-    margin-right: 35%;
+    width: 100%;
+    margin-left: 40%;
+    margin-right: 50%;
+
 }
+.fa-sharp {
+
+    position: absolute;
+    margin-right: 5%;
+    margin-left: 0.5%;
+    top: 252px;
+    font-size: 12px;
+    
+}
+
+
 
 a{
     color:var(--color-dark);
