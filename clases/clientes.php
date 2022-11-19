@@ -1,5 +1,5 @@
 <<?php
-include("Respuesta.php")
+include("Respuesta.php");
 
 class Cliente{
    public $idcliente;
@@ -53,11 +53,8 @@ public function Login($Conexion)
         $respuesta->Error("Contrasena o usuario incorrecto");
         return $respuesta;
     }
+
 }
 }
-
-
-
-
 
  ?>
