@@ -40,4 +40,36 @@
   </body>
 </html>
 
+<script>
 
+    function Login()
+    {
+
+        var Correo = document.getElementById('correo').value;
+        var Password = document.getElementById('contrasena').value;
+
+// alert(Correo + " " + Password);
+
+
+       $.post("/php/loginADMWS.php",
+        {
+            "Correo" : Correo,
+            "Password" : Password
+        },
+
+        function(Data)
+        {
+            var respuesta = JSON.parse(Data);
+
+            if(respuesta.Ok == 1)
+            {
+                location.href = "/MenuPrincipal/menu.html";
+            }else{
+                alert(Data);
+            }
+        }
+      );
+    }
+
+
+</script>
