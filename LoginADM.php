@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/jquery.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Inicio Sesión </title>
   </head>
@@ -17,7 +19,7 @@
           <div class="form-box">
             <div class="top">
               <p>
-             
+
               </p>
             </div>
             <form action="">
@@ -31,12 +33,12 @@
                   <div class="icon form-icon">
                   </div>
                 </div>
-                
+
                 <input type="Submit" onclick="Login()" value="Ingresar"/>
               </div>
             </form>
           </div>
-        </div>           
+        </div>
   </body>
 </html>
 
@@ -51,7 +53,7 @@
 // alert(Correo + " " + Password);
 
 
-       $.post("/php/loginADMWS.php",
+       $.post("php/loginADMWS.php",
         {
             "Correo" : Correo,
             "Password" : Password

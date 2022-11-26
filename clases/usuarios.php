@@ -18,14 +18,14 @@ class Usuarios{
     }
 
     public function guardarUsuario($Conexion){
-
+      $this->Usuarioid="1";
       $Res = new Respuesta();
       if (trim($this->Correo)==""){
       $Res->NoSucces("Debe ingresar un correo");
       }else{
        mysqli_query($Conexion,
           "INSERT into usuario(correo, contrasena, id_rol)
-          values('$this->Correo','$this->Password','1')"
+          values('$this->Correo','$this->Password','$this->Usuarioid')"
       );
       if (mysqli_error($Conexion)){
           $Res->NoSucces("Error al Insertar: " . $Conexion->error);
@@ -38,21 +38,36 @@ class Usuarios{
 
     public function Login($Conexion)
     {
+      //alert("si llega")
+
+      //aqui tira error
         $resultado = mysqli_query($Conexion,"SELECT correo, contrasena FROM usuario WHERE correo = '$this->Correo'");
+
         $data = $resultado->fetch_assoc();
         $respuesta = new Respuesta();
 
-        if ($data == null)
+        if ($data == null) {
+          $respuesta->VoidMail("Debes rellenar todos los campos.");
+          return $respuesta;
+      } else if ($data['contrasena'] == $this->Password) {
+          $respuesta->Correcto("Inicio de sesion exitoso");
+          return $respuesta;
+      } else {
+          $respuesta->Error("Contrasena o usuario incorrecto");
+          return $respuesta;
+      }
+  }
+      /*  $data = mysqli_query($Conexion, $resultado);
+        $list = array();
+
+        while($row = mysqli_fetch_array($resultado))
         {
-            $respuesta->Error("El correo que intentas utilizar no existe");
-            return $respuesta;
-        } else if ($data['contrasena'] == $this->Password) {
-            $respuesta->Correcto("Inicio de sesion exitoso");
-            return $respuesta;
-        } else {
-            $respuesta->Error("Contrasena o usuario incorrecto");
-            return $respuesta;
+          $userAct = new usuarios();
+          $userACt -> ConstructorSobrecargado($row['Correo'],$row['Password']);
+
+          $list[] = $userAct;
         }
-    }
+        return $list;
+    }*/
 }
 ?>
